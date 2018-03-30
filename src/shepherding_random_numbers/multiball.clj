@@ -9,23 +9,23 @@
    :ty 0})
 
 (defn setup []
-  (q/frame-rate 30)
+  (q/frame-rate 60)
   (q/color-mode :hsb)
   (map make-circle (range -9 9.1 0.3)))
 
 (defn set-new-target [circle]
   (let [ty (dec (rand 2))
-        dy (-> circle :y (- ty) (/ -45))]
+        dy (-> circle :y (- ty) (/ -30))]
     (-> circle
-        (assoc :t 45)
-        (assoc :ty ty)
-        (assoc :dy dy))))
+        (assoc :t 100)
+        (assoc :ty ty))))
 
 (defn update-circle [circle]
   (if (zero? (:t circle))
     (set-new-target circle)
     (-> circle
         (update :t dec)
+        (assoc :dy (-> circle :ty (- (:y circle)) (/ 30)))
         (update :y #(+ % (:dy circle))))))
 
 (defn update-state [state]
