@@ -6,13 +6,14 @@
             [shepherding-random-numbers.memory :as mem]
             [shepherding-random-numbers.memspeed :as ms]
             [shepherding-random-numbers.specspeed :as ss]
-            [shepherding-random-numbers.many :as mn]))
+            [shepherding-random-numbers.many :as mn]
+            [shepherding-random-numbers.mark :as mark]))
 
-(q/defsketch shepherding-random-numemers
+(q/defsketch shepherding-random-numbers
   :title "Single random circle"
   :size [1000 500]
-  :setup mn/setup
-  :update mn/update-state
-  :draw mn/draw-state
+  :setup mark/setup
+  :update mark/update-state
+  :draw mark/draw-state
   :features [:keep-on-top]
   :middleware [m/fun-mode])
