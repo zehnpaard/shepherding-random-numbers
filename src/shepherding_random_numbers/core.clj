@@ -7,13 +7,14 @@
             [shepherding-random-numbers.memspeed :as ms]
             [shepherding-random-numbers.specspeed :as ss]
             [shepherding-random-numbers.many :as mn]
-            [shepherding-random-numbers.mark :as mark]))
+            [shepherding-random-numbers.mark :as mark]
+            [shepherding-random-numbers.horizontal :as hz]))
 
 (q/defsketch shepherding-random-numbers
   :title "Single random circle"
   :size [1000 500]
-  :setup mark/setup
-  :update mark/update-state
-  :draw mark/draw-state
+  :setup hz/setup
+  :update hz/update-state
+  :draw hz/draw-state
   :features [:keep-on-top]
   :middleware [m/fun-mode])
