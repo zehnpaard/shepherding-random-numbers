@@ -1,24 +1,13 @@
 (ns shepherding-random-numbers.core
   (:require [quil.core :as q]
-            [quil.middleware :as m]))
-
-(defn setup []
-  (q/frame-rate 30)
-  (q/color-mode :hsb)
-  {})
-
-(defn update-state [state]
-  state)
-
-(defn draw-state [state]
-  (q/background 240)
-  (q/fill (:color state) 255 255))
+            [quil.middleware :as m]
+            [shepherding-random-numbers.singleball :as s]))
 
 (q/defsketch shepherding-random-numbers
-  :title "You spin my circle right round"
+  :title "Single random circle"
   :size [500 500]
-  :setup setup
-  :update update-state
-  :draw draw-state
+  :setup s/setup
+  :update s/update-state
+  :draw s/draw-state
   :features [:keep-on-top]
   :middleware [m/fun-mode])
