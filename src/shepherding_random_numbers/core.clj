@@ -8,13 +8,14 @@
             [shepherding-random-numbers.specspeed :as ss]
             [shepherding-random-numbers.many :as mn]
             [shepherding-random-numbers.mark :as mark]
-            [shepherding-random-numbers.horizontal :as hz]))
+            [shepherding-random-numbers.horizontal :as hz]
+            [shepherding-random-numbers.circle :as cc]))
 
 (q/defsketch shepherding-random-numbers
   :title "Single random circle"
-  :size [1000 500]
-  :setup hz/setup
-  :update hz/update-state
-  :draw hz/draw-state
+  :size [600 600]
+  :setup cc/setup
+  :update cc/update-state
+  :draw cc/draw-state
   :features [:keep-on-top]
   :middleware [m/fun-mode])

@@ -1,11 +1,11 @@
-(ns shepherding-random-numbers.horizontal
+(ns shepherding-random-numbers.circle
   (:require [quil.core :as q]))
 
-(defn make-circle [x]
+(defn make-circle [[x y]]
   {:x x
    :dx 0
    :sdx 0
-   :y 0
+   :y y
    :dy 0
    :sdy 0})
 
@@ -13,7 +13,9 @@
   (q/frame-rate 60)
   (q/color-mode :hsb)
   (q/background 255)
-  (map make-circle (range -9 9.1 0.005)))
+  (->> (range 0 q/TWO-PI 0.001)
+       (map (juxt q/sin q/cos))
+       (map make-circle)))
 
 
 (defn update-special-velocities [state]
@@ -30,11 +32,11 @@
   (let [dy (+ (:dy circle)
               (-> (rand 2) dec (/ 10000)))
         y (bound (+ (:y circle) dy (:sdy circle)) 
-                 -1.5 1.5)
+                 -2.5 2.5)
         dx (+ (:dx circle)
               (-> (rand 2) dec (/ 10000)))
         x (bound (+ (:x circle) dx (:sdx circle)) 
-                 -10 10)]
+                 -2.5 2.5)]
     (-> circle
         (assoc :dy dy)
         (assoc :y y)
@@ -47,14 +49,14 @@
        (map update-circle)))
 
 (defn draw-circle [circle]
-  (let [x (* (:x circle) 50)
-        y (* (:y circle) 150)]
+  (let [x (* (:x circle) 100)
+        y (* (:y circle) 100)]
     (q/no-stroke)
     (q/with-fill [0 0 0 50]
       (q/ellipse x y 1 1))))
 
 (defn draw-state [state]
-  (q/with-translation [500 250]
+  (q/with-translation [300 300]
     (doall
       (for [circle state]
         (draw-circle circle)))))
