@@ -9,13 +9,14 @@
             [shepherding-random-numbers.many :as mn]
             [shepherding-random-numbers.mark :as mark]
             [shepherding-random-numbers.horizontal :as hz]
-            [shepherding-random-numbers.circle :as cc]))
+            [shepherding-random-numbers.circle :as cc]
+            [shepherding-random-numbers.circleshuffle :as cs]))
 
 (q/defsketch shepherding-random-numbers
   :title "Single random circle"
   :size [600 600]
-  :setup cc/setup
-  :update cc/update-state
-  :draw cc/draw-state
+  :setup cs/setup
+  :update cs/update-state
+  :draw cs/draw-state
   :features [:keep-on-top]
   :middleware [m/fun-mode])
