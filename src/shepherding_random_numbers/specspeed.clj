@@ -1,4 +1,4 @@
-(ns shepherding-random-numbers.memspeed
+(ns shepherding-random-numbers.specspeed
   (:require [quil.core :as q]))
 
 (defn make-circle [x]

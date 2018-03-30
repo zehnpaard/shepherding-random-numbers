@@ -4,7 +4,8 @@
             [shepherding-random-numbers.singleball :as sb]
             [shepherding-random-numbers.multiball :as mb]
             [shepherding-random-numbers.memory :as mem]
-            [shepherding-random-numbers.memspeed :as ms]))
+            [shepherding-random-numbers.memspeed :as ms]
+            [shepherding-random-numbers.specspeed :as ss]))
 
 (q/defsketch shepherding-random-numemers
   :title "Single random circle"
