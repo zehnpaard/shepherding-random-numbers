@@ -5,13 +5,14 @@
             [shepherding-random-numbers.multiball :as mb]
             [shepherding-random-numbers.memory :as mem]
             [shepherding-random-numbers.memspeed :as ms]
-            [shepherding-random-numbers.specspeed :as ss]))
+            [shepherding-random-numbers.specspeed :as ss]
+            [shepherding-random-numbers.many :as mn]))
 
 (q/defsketch shepherding-random-numemers
   :title "Single random circle"
   :size [1000 500]
-  :setup ms/setup
-  :update ms/update-state
-  :draw ms/draw-state
+  :setup mn/setup
+  :update mn/update-state
+  :draw mn/draw-state
   :features [:keep-on-top]
   :middleware [m/fun-mode])
