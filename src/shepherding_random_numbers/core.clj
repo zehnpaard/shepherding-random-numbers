@@ -3,13 +3,14 @@
             [quil.middleware :as m]
             [shepherding-random-numbers.singleball :as sb]
             [shepherding-random-numbers.multiball :as mb]
-            [shepherding-random-numbers.memory :as mem]))
+            [shepherding-random-numbers.memory :as mem]
+            [shepherding-random-numbers.memspeed :as ms]))
 
 (q/defsketch shepherding-random-numemers
   :title "Single random circle"
   :size [1000 500]
-  :setup mem/setup
-  :update mem/update-state
-  :draw mem/draw-state
+  :setup ms/setup
+  :update ms/update-state
+  :draw ms/draw-state
   :features [:keep-on-top]
   :middleware [m/fun-mode])
